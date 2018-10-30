@@ -1,8 +1,8 @@
 FROM nginx
 
 COPY nginx.conf /etc/nginx/nginx.conf
-RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
+COPY fastcgi_params /etc/nginx/fastcgi_params
 
-RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
+RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
 
 EXPOSE 8080
